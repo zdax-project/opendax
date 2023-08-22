@@ -94,6 +94,11 @@ docker ps
 sudo systemctl status docker
 sudo systemctl start docker
 ```
+### Helpful command
+```
+docker stop $(docker ps -aq)    # Stops all docker containers
+docker rm $(docker ps -aq)      # Removes all docker containers
+```
 ### Docker Logs:
 ```
 sudo journalctl -u docker
