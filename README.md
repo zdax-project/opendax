@@ -14,7 +14,7 @@ OpenDAX is an open-source cloud-native multi-service platform for building a Blo
 
 ## Getting started with OpenDAX
 
-### 1. Get a VM
+### 1. Get a VM  - Tested on Ubuntu 20.04
 
 Minimum VM requirements for OpenDAX:
  * 8GB of RAM (12GB recommended)
@@ -74,6 +74,30 @@ rake -T # To see if ruby and lib works
 ```
 
 Using `rake -T` you can see all available commands, and can create new ones in `lib/tasks`
+
+### 3.1  install docker dependencies
+```
+sudo apt install docker-compose -y
+docker-compose --version  # Confirm install
+```
+### Add your user to the docker group: This will allow your user to run Docker commands without needing sudo:
+```
+sudo usermod -aG docker $USER
+```
+After doing this, you'll need to log out and log back in for the changes to take effect.
+### Try running a Docker command to check:
+```
+docker ps
+```
+### 3.2 Start the Docker service: First, make sure Docker is running:
+```
+sudo systemctl status docker
+sudo systemctl start docker
+```
+### Docker Logs:
+```
+sudo journalctl -u docker
+```
 
 ### 4. Run everything
 
