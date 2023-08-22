@@ -8,13 +8,13 @@ render_protect: false
 csrfEnabled: false
 ssl:
   enabled: false
-  email: support@example.com
+  email: support@zdax.exchange
 updateVersions: false
 images:
   peatio: quay.io/openware/peatio:2.6.48
   barong: quay.io/openware/barong:2.6.48
   frontend: quay.io/openware/baseapp:2.6.24
-  tower: quay.io/openware/tower:2.6.66
+  tower: quay.io/openware/tower:2.6.80
   rango: quay.io/openware/rango:2.6.1
 finex:
   enabled: false
@@ -64,8 +64,8 @@ smtp:
   port: 2525
   user: apikey
   password: changeme
-  sender_email: noreply@barong.io
-  sender_name: Postmaster
+  sender_email: noreply@zdax.exchange
+  sender_name: ZDAX Exchange
   sender_logo: https://storage.googleapis.com/public_peatio/logo.png
 wallets:
   eth:
@@ -104,6 +104,14 @@ bitcoind:
   network: testnet
   rpcport: 18332
   port: 18333
+sumcoind:
+  enabled: false
+  rpcuser: user
+  rpcpassword: password
+  address: bitcoind
+  network: mainnet
+  rpcport: 3332
+  port: 3333  
 litecoind:
   rpcuser: admin
   rpcpassword: changeme
