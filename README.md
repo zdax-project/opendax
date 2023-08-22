@@ -28,7 +28,7 @@ A VM from any cloud provider like DigitalOcean, Vultr, GCP, AWS as well as any d
 #### 2.1 Create Unix user
 SSH using root user, then create new user for the application
 ```bash
-useradd -g users -s `which bash` -m app
+useradd -g users -s `which bash` -m zdax
 ```
 
 #### 2.2 Install Docker and docker compose
@@ -42,7 +42,7 @@ Docker compose follow steps: [docker compose](https://docs.docker.com/compose/in
 
 ##### 2.3.1 Change user using
 ```bash
-su - app
+su - zdax
 ```
 
 ##### 2.3.2 Clone OpenDAX
@@ -52,15 +52,23 @@ git clone https://github.com/zdax-project/opendax.git
 
 ##### 2.3.3 Install RVM
 ```bash
+sudo apt-get update
+sudo apt-get upgrade -y
 gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 curl -sSL https://get.rvm.io | bash -s stable
-cd opendax
-rvm install .
+source /home/zdax/.rvm/scripts/rvm
+rvm install ruby-2.6.6
+### Note add permissions to zdax user from root in visudo such as `zdax  ALL=(ALL:ALL) NOPASSWD:ALL`
+echo "source ~/.rvm/scripts/rvm" >> ~/.bashrc
+rvm use 2.6.6 --default
+gem install bundler
+
 ```
 
 ### 3. Bundle install dependencies
 
 ```bash
+cd opendax
 bundle install
 rake -T # To see if ruby and lib works
 ```
