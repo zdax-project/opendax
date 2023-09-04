@@ -56,7 +56,7 @@ sudo apt-get update
 sudo apt-get upgrade -y
 gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 curl -sSL https://get.rvm.io | bash -s stable
-source /home/zdax/.rvm/scripts/rvm
+source /home/app/.rvm/scripts/rvm
 source /etc/profile.d/rvm.sh
 rvm install ruby-2.6.6
 ### Note add permissions to zdax user from root in visudo such as `app  ALL=(ALL:ALL) NOPASSWD:ALL`
